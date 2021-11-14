@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const StyledAnimePrev = styled.div`
-    max-width:  170px;
-    max-height: 200px;
+    width: 284px;
+    height: 402px;
+    max-width:  284px;
+    max-height: 402px;
     background-color: #61dafb;
     margin: auto;
-     
 `

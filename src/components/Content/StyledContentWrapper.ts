@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const StyledContentWrapper = styled.div `
-
-    width: 600px;
-    height: 600px;
+    width: 900px;
+    height: 1200px;
     margin: auto;
-
+  
 `

@@ -1,4 +1,4 @@
-import {AnimePrev} from "../AnimePrev/AnimePrev";
+import {AnimeList} from "../AnimeList/AnimeList";
 import {StyledContentWrapper} from "./StyledContentWrapper";
 import {useGetAnimeListQuery} from "../../store";
 
@@ -10,10 +10,13 @@ export const ContentWrapper = () => {
         await console.log(data.data)
     }
 
-    if(!isLoading) {
-        return data.data.map((item: object) => <AnimePrev anime={item}/>)
+    if (!isLoading) {
+        return (
+            <StyledContentWrapper>
+                <AnimeList animePropType={data.data}/>
+            </StyledContentWrapper>
+        )
     }
-
 
     return (
         <StyledContentWrapper>

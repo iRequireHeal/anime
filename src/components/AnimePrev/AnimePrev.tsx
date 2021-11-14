@@ -1,12 +1,17 @@
-import {StyledAnimePrev} from "./StyledAnimePrev";
 import {animeType} from "../../store/types/types";
+import {StyledAnimePrev} from './StyledAnimePrev'
 
-export const AnimePrev = ( anime: animeType) => {
+type animePrev = {
+    animTypes: animeType
+}
 
-    console.log(anime)
-
+export const AnimePrev = ({animTypes} : animePrev) => {
+    console.log(animTypes)
     return (
         <StyledAnimePrev>
+            <p>id - {animTypes.id} </p>
+            <p>Title - {animTypes.attributes.titles.en}</p>
+            <img src={`https://media.kitsu.io/anime/poster_images/${animTypes.id}/small.jpg`} alt=""/>
         </StyledAnimePrev>
     )
 }
