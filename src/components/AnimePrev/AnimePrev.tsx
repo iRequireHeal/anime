@@ -1,17 +1,28 @@
 import {animeType} from "../../store/types/types";
-import {StyledAnimePrev} from './StyledAnimePrev'
+import {StyledAnimePrev, AnimeTitle, AnimeImage, Description, AgeRating, DescriptionWrapper, Title} from './StyledAnimePrev'
 
 type animePrev = {
     animTypes: animeType
 }
 
-export const AnimePrev = ({animTypes} : animePrev) => {
-    console.log(animTypes)
+export const AnimePrev = ({animTypes}: animePrev) => {
     return (
         <StyledAnimePrev>
-            <p>id - {animTypes.id} </p>
-            <p>Title - {animTypes.attributes.titles.en}</p>
-            <img src={`https://media.kitsu.io/anime/poster_images/${animTypes.id}/small.jpg`} alt=""/>
+            <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${animTypes.id}/small.jpg`} alt=""/>
+
+            <DescriptionWrapper>
+                <Title>
+                    <AgeRating>
+                        {animTypes.attributes.ageRating}
+                    </AgeRating>
+                    <AnimeTitle href={'#'}>{animTypes.attributes.titles.en}</AnimeTitle>
+                </Title>
+
+                <Description>
+                    {animTypes.attributes.description}
+                </Description>
+            </DescriptionWrapper>
+
         </StyledAnimePrev>
     )
 }

@@ -1,7 +1,6 @@
 import {AnimeList} from "../AnimeList/AnimeList";
 import {StyledContentWrapper} from "./StyledContentWrapper";
-import {useGetAnimeListQuery} from "../../store";
-
+import {useGetAnimeListQuery, useGetCategoriesQuery} from "../../store";
 
 export const ContentWrapper = () => {
     const {data, isLoading, isError} = useGetAnimeListQuery(null);

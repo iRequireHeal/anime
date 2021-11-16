@@ -9,8 +9,12 @@ export const animeListApi = createApi({
         getAnimeList: build.query({
             query:() =>
                 "https://kitsu.io/api/edge/anime?page[limit]=5&page[offset]=0"
+        }),
+        getCategories: build.query({
+            query:() =>
+                'https://kitsu.io/api/edge/anime/1/categories'
         })
     })
 })
 
-export const {useGetAnimeListQuery} = animeListApi;
+export const {useGetAnimeListQuery, useGetCategoriesQuery} = animeListApi;
