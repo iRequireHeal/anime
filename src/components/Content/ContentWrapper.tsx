@@ -1,5 +1,5 @@
 import {AnimeList} from "../AnimeList/AnimeList";
-import {StyledContentWrapper} from "./StyledContentWrapper";
+import {ContentWrapperStyles} from "./ContentWrapper.styles";
 import {useGetAnimeListQuery} from "../../store";
 
 export const ContentWrapper = () => {
@@ -11,15 +11,15 @@ export const ContentWrapper = () => {
 
     if (!animeListLoading) {
         return (
-            <StyledContentWrapper>
+            <ContentWrapperStyles>
                 <AnimeList animePropType={animeList.data} />
-            </StyledContentWrapper>
+            </ContentWrapperStyles>
         )
     }
 
     return (
-        <StyledContentWrapper>
+        <ContentWrapperStyles>
             <button onClick={gets}>asdasd</button>
-        </StyledContentWrapper>
+        </ContentWrapperStyles>
     )
 }

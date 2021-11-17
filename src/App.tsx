@@ -21,7 +21,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
-                    <Route path="/anime" element={<AnimePage/>}/>
+                    <Route path={`anime/:id`} element={<AnimePage/>}/>
                 </Routes>
             </Router>
         </div>
