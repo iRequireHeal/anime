@@ -1,7 +1,8 @@
 import {Header} from "../../components/Header/Header";
-import {useGetAnimeQuery} from "../../store";
+import {useGetAnimeListQuery, useGetAnimeQuery} from "../../store";
+import {animeType} from "../../store/types/types";
 
-import {useLocation} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {
     AnimeImage,
     AnimeTitle,
@@ -12,42 +13,27 @@ import {
     Attribute,
     AttributeName
 } from "../../components/AnimePrev/AnimePrev.styles";
+import {AnimeCard} from "../../components/AnimeCard/AnimeCard";
 
 export const AnimePage = () => {
-    const location = useLocation()
+    let {id} = useParams();
+    const Id = Number(id)
+    const {data: anime, isLoading} = useGetAnimeQuery(Id)
+    async function asdasd() {
+        await console.log(anime)
+    }
 
+    if (!anime)
+       return <h1>Loading</h1>
 
     return (
         <div>
             <Header/>
             <AnimePrevStyles>
-                <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${location.state.id}/small.jpg`} alt=""/>
-                <DescriptionWrapper>
-                    <AnimeTitle>{location.state.attributes.titles.en}</AnimeTitle>
-                    <Description>{location.state.attributes.description}</Description>
-
-                    <AttributesWrapper>
-                        <AttributeName>Age rating</AttributeName>
-                        <Attribute>{location.state.attributes.ageRating}</Attribute>
-                    </AttributesWrapper>
-                    <AttributesWrapper>
-                        <AttributeName>Episode count</AttributeName>
-                        <Attribute>{location.state.attributes.episodeCount}</Attribute>
-                    </AttributesWrapper>
-                    <AttributesWrapper>
-                        <AttributeName>Show type</AttributeName>
-                        <Attribute>{location.state.attributes.showType}</Attribute>
-                    </AttributesWrapper>
-                    <AttributesWrapper>
-                        <AttributeName>status</AttributeName>
-                        <Attribute>{location.state.attributes.status}</Attribute>
-                    </AttributesWrapper>
-                    <AttributesWrapper>
-                        <AttributeName>Popularity rank</AttributeName>
-                        <Attribute>{location.state.attributes.popularityRank}</Attribute>
-                    </AttributesWrapper>
-                </DescriptionWrapper>
+                <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${Id}/small.jpg`} alt=""/>
+                <AnimeCard fullInfo={anime} />
             </AnimePrevStyles>
         </div>
     )
 }
+

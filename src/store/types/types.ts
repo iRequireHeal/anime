@@ -1,14 +1,14 @@
 export type animeType = {
     id: number;
     attributes: {
-        slug:string
         canonicalTitle:string
-        posterImage: {small: string}
-        ageRating: string;
         description: string;
+        ageRating: string;
+        slug:string
+        episodeCount: number
+        showType:string
+        status:string
+        popularityRank:number
     }
 }
 
-export type categoriesType = {
-    relationships: { categories: { links: {related:string}} }
-}

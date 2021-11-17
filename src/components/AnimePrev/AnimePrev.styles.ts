@@ -7,7 +7,7 @@ export const AnimePrevStyles = styled.div`
   margin: 30px 50px;
 `
 
-export const AnimeTitle = styled.button`
+export const AnimeTitle = styled(Link)`
   cursor: pointer;
   text-align: left;
   border: none;
