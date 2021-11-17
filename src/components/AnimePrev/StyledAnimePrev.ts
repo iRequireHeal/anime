@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 export const StyledAnimePrev = styled.div`
   text-align: center;
@@ -6,7 +7,10 @@ export const StyledAnimePrev = styled.div`
   margin: 30px 50px;
 `
 
-export const AnimeTitle = styled.a`
+export const AnimeTitle = styled.button`
+  text-align: left;
+  border: none;
+  background-color: transparent;
   padding: 0 20px;
   color: cyan;
   text-decoration: none;
@@ -15,6 +19,7 @@ export const AnimeTitle = styled.a`
 
 export const AnimeImage = styled.img`
   border-radius: 10%;
+
   &:hover {
     border: red solid 2px;
   }
@@ -28,7 +33,7 @@ export const Description = styled.div`
   width: 1284px;
   text-align: left;
   padding: 10px 20px;
-  color: white;
+  color: antiquewhite;
 `
 export const DescriptionWrapper = styled.div`
   width: 1500px;
@@ -48,4 +53,21 @@ export const AgeRating = styled.div`
   height: 40px;
   border-radius: 12px;
   background-color: white;
+`
+export const AttributesWrapper = styled.div`
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  width: 300px;
+  padding-left: 20px;
+`
+export const AttributeName = styled.p`
+  color: antiquewhite;
+  margin: 10px 0;
+`
+export const Attribute= styled.p`
+  margin: 10px 0;
+  width: 90px;
+  text-align: left;
+  color: lightskyblue;
 `
