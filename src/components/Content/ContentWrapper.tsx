@@ -1,18 +1,18 @@
 import {AnimeList} from "../AnimeList/AnimeList";
 import {StyledContentWrapper} from "./StyledContentWrapper";
-import {useGetAnimeListQuery, useGetCategoriesQuery} from "../../store";
+import {useGetAnimeListQuery} from "../../store";
 
 export const ContentWrapper = () => {
-    const {data, isLoading, isError} = useGetAnimeListQuery(null);
+    const {data: animeList, isLoading: animeListLoading} = useGetAnimeListQuery('');
 
     const gets = async () => {
-        await console.log(data.data)
+        await console.log(animeList.data)
     }
 
-    if (!isLoading) {
+    if (!animeListLoading) {
         return (
             <StyledContentWrapper>
-                <AnimeList animePropType={data.data}/>
+                <AnimeList animePropType={animeList.data} />
             </StyledContentWrapper>
         )
     }

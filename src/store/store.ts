@@ -1,9 +1,11 @@
-import {configureStore, getDefaultMiddleware} from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
 import {animeListApi} from "./services/animeListApi";
+import {setupListeners} from "@reduxjs/toolkit/query";
+import {rootReducer} from "./rootReducer";
 
 export const store = configureStore({
-    reducer: {
-        [animeListApi.reducerPath]: animeListApi.reducer,
-    },
+    reducer: rootReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(animeListApi.middleware)
 })
+
+setupListeners(store.dispatch)

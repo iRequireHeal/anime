@@ -3,18 +3,19 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const animeListApi = createApi({
     reducerPath: 'animeListApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://api.anidb.net:9001/httpapi?equest=main',
+        baseUrl: 'https://kitsu.io/api/edge/anime',
     }),
     endpoints: (build) => ({
         getAnimeList: build.query({
-            query:() =>
-                "https://kitsu.io/api/edge/anime?page[limit]=5&page[offset]=0"
+            query:() => ({
+                url: `?page&page[offset]=0`,
+            })
         }),
-        getCategories: build.query({
-            query:() =>
-                'https://kitsu.io/api/edge/anime/1/categories'
+        getAnime: build.query({
+            query:(id) =>
+                `https://kitsu.io/api/edge/anime/${id}`
         })
     })
 })
 
-export const {useGetAnimeListQuery, useGetCategoriesQuery} = animeListApi;
+export const {useGetAnimeListQuery, useGetAnimeQuery} = animeListApi;

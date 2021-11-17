@@ -11,3 +11,5 @@ export const searchSlice = createSlice({
         }
     }
 })
+
+export const {getInput} = searchSlice.actions

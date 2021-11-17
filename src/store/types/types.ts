@@ -9,6 +9,6 @@ export type animeType = {
     }
 }
 
-export type categories = {
+export type categoriesType = {
     relationships: { categories: { links: {related:string}} }
 }
