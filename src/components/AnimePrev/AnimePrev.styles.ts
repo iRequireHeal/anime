@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 
-export const StyledAnimePrev = styled.div`
+export const AnimePrevStyles = styled.div`
   text-align: center;
   display: flex;
   margin: 30px 50px;
 `
 
 export const AnimeTitle = styled.button`
+  cursor: pointer;
   text-align: left;
   border: none;
   background-color: transparent;
@@ -19,7 +20,9 @@ export const AnimeTitle = styled.button`
 
 export const AnimeImage = styled.img`
   border-radius: 10%;
-
+  border: 2px solid grey;
+  height: 406px;
+  max-height: 406px;
   &:hover {
     border: red solid 2px;
   }

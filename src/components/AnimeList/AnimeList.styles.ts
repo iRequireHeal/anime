@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const StyledAnimeList = styled.div`
+export const AnimeListStyles = styled.div`
     
 `

@@ -2,7 +2,7 @@ export type animeType = {
     id: number;
     attributes: {
         slug:string
-        titles: {en: string}
+        canonicalTitle:string
         posterImage: {small: string}
         ageRating: string;
         description: string;

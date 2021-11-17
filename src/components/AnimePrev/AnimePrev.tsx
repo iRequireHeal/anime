@@ -1,5 +1,5 @@
 import {animeType, categoriesType} from "../../store/types/types";
-import {StyledAnimePrev, AnimeTitle, AnimeImage, Description, AgeRating, DescriptionWrapper, Title} from './StyledAnimePrev'
+import {AnimePrevStyles, AnimeTitle, AnimeImage, Description, AgeRating, DescriptionWrapper, Title} from './AnimePrev.styles'
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -19,19 +19,19 @@ export const AnimePrev = ({animTypes}: animePrev ) => {
     }
 
     return (
-        <StyledAnimePrev>
+        <AnimePrevStyles>
             <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${animTypes.id}/small.jpg`} alt=""/>
             <DescriptionWrapper>
                 <Title>
                     <AgeRating>
                         {animTypes.attributes.ageRating}
                     </AgeRating>
-                    <AnimeTitle onClick={setId}>{animTypes.attributes.titles.en}</AnimeTitle>
+                    <AnimeTitle onClick={setId}>{animTypes.attributes.canonicalTitle}</AnimeTitle>
                 </Title>
                 <Description>
                     {animTypes.attributes.description}
                 </Description>
             </DescriptionWrapper>
-        </StyledAnimePrev>
+        </AnimePrevStyles>
     )
 }

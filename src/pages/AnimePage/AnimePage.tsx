@@ -7,11 +7,11 @@ import {
     AnimeTitle,
     Description,
     DescriptionWrapper,
-    StyledAnimePrev,
+    AnimePrevStyles,
     AttributesWrapper,
     Attribute,
     AttributeName
-} from "../../components/AnimePrev/StyledAnimePrev";
+} from "../../components/AnimePrev/AnimePrev.styles";
 
 export const AnimePage = () => {
     const location = useLocation()
@@ -20,7 +20,7 @@ export const AnimePage = () => {
     return (
         <div>
             <Header/>
-            <StyledAnimePrev>
+            <AnimePrevStyles>
                 <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${location.state.id}/small.jpg`} alt=""/>
                 <DescriptionWrapper>
                     <AnimeTitle>{location.state.attributes.titles.en}</AnimeTitle>
@@ -47,7 +47,7 @@ export const AnimePage = () => {
                         <Attribute>{location.state.attributes.popularityRank}</Attribute>
                     </AttributesWrapper>
                 </DescriptionWrapper>
-            </StyledAnimePrev>
+            </AnimePrevStyles>
         </div>
     )
 }

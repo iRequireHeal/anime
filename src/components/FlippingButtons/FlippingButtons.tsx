@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {FlippingButtonWrapper, FlippingButton} from "./FlippingButtonStyle"
+import {FlippingButtonWrapper, FlippingButton} from "./FlippingButton.styles"
 
 export const FlippingButtons = () => {
     return(
