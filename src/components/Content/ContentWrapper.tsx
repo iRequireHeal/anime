@@ -1,13 +1,14 @@
 import {AnimeList} from "../AnimeList/AnimeList";
 import {ContentWrapperStyles} from "./ContentWrapper.styles";
-import {useGetAnimeListQuery} from "../../store";
+import {TStore, useGetAnimeListQuery, useGetSearchedListQuery} from "../../store";
+import {useSelector} from "react-redux";
+
 
 export const ContentWrapper = () => {
-    const {data: animeList, isLoading: animeListLoading} = useGetAnimeListQuery('');
+    const titleName = useSelector((state: TStore) => state.reducer.titleName)
+    const {data: animeList, isLoading: animeListLoading} = useGetSearchedListQuery(titleName);
 
-    const gets = async () => {
-        await console.log(animeList.data)
-    }
+    console.log(titleName)
 
     if (!animeListLoading) {
         return (
@@ -19,7 +20,7 @@ export const ContentWrapper = () => {
 
     return (
         <ContentWrapperStyles>
-            <button onClick={gets}>asdasd</button>
+            <button>asdasd</button>
         </ContentWrapperStyles>
     )
 }

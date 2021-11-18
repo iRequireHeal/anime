@@ -9,3 +9,4 @@ export const store = configureStore({
 })
 
 setupListeners(store.dispatch)
+export type TStore = ReturnType<typeof store.getState>;

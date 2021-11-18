@@ -1,6 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {RootState} from "@reduxjs/toolkit/dist/query/core/apiState";
 
-const initialState = ''
+let initialState = {
+    titleName: "Naru"
+}
 
 export const searchSlice = createSlice({
     name:'search',
@@ -8,8 +11,10 @@ export const searchSlice = createSlice({
     reducers: {
         getInput(state, action) {
             state = action.payload
+            console.log(state)
         }
     }
 })
 
 export const {getInput} = searchSlice.actions
+

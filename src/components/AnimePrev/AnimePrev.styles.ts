@@ -40,8 +40,9 @@ export const Description = styled.div`
 `
 export const DescriptionWrapper = styled.div`
   width: 1500px;
-  padding: 20px 30px;
-  margin: 10px 20px;
+
+  padding: 10px 30px 30px;
+  margin: 0 20px;
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.11);

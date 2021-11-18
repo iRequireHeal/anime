@@ -15,9 +15,15 @@ export const animeListApi = createApi({
         getAnime: build.query<animeType,number|undefined>({
             query:(id) => `https://kitsu.io/api/edge/anime/${id}`,
             transformResponse: (response: { data: animeType }) => response.data,
+        }),
+        getSearchedList: build.query({
+            query:(name) =>({
+                url: `?filter[text]=${name}`
+            })
         })
+
     })
 })
 
-export const {useGetAnimeListQuery, useGetAnimeQuery} = animeListApi;
+export const {useGetAnimeListQuery, useGetAnimeQuery, useGetSearchedListQuery} = animeListApi;
 
