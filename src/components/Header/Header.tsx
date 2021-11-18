@@ -6,7 +6,7 @@ import {Search} from "../Search/Search";
 export const Header = () => {
     return (
         <StyledNav>
-            <StyledLogo>Anime-chan</StyledLogo>
+            <StyledLogo to="/">Anime-chan</StyledLogo>
             <Search/>
         </StyledNav>
     )
