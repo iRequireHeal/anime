@@ -1,20 +1,13 @@
 import {animeType} from "../../store/types/types";
-import {AnimePrevStyles, AnimeTitle, AnimeImage, Description, AgeRating, DescriptionWrapper, Title} from './AnimePrev.styles'
-import {Link} from "react-router-dom";
-import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {getId, selectId} from "../../store/modules/СurrentAnime/currentAnimeSlice";
-import {useGetAnimeListQuery} from "../../store";
+import {AnimePreviewStyles, AnimeTitle, AnimeImage, Description, AgeRating, DescriptionWrapper, Title} from './AnimePreview.styles'
 
-type animePrev = {
+type animePreview = {
     animTypes: animeType
 }
 
-export const AnimePrev = ({animTypes}: animePrev ) => {
-    const navigate = useNavigate()
-
+export const AnimePreview = ({animTypes}: animePreview ) => {
     return (
-        <AnimePrevStyles>
+        <AnimePreviewStyles>
             <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${animTypes.id}/small.jpg`} alt=""/>
             <DescriptionWrapper>
                 <Title>
@@ -27,6 +20,6 @@ export const AnimePrev = ({animTypes}: animePrev ) => {
                     {animTypes.attributes.description}
                 </Description>
             </DescriptionWrapper>
-        </AnimePrevStyles>
+        </AnimePreviewStyles>
     )
 }

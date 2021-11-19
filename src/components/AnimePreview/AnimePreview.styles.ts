@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 
-export const AnimePrevStyles = styled.div`
+export const AnimePreviewStyles = styled.div`
   text-align: center;
   display: flex;
   margin: 30px 50px;

@@ -8,8 +8,8 @@ export const animeListApi = createApi({
     }),
     endpoints: (build) => ({
         getAnimeList: build.query({
-            query:() => ({
-                url: `?page&page[offset]=0`,
+            query:(page) => ({
+                url: `?page[limit]=10&page[offset]=${page}`,
             })
         }),
         getAnime: build.query<animeType,number|undefined>({
@@ -18,7 +18,7 @@ export const animeListApi = createApi({
         }),
         getSearchedList: build.query({
             query:(name) =>({
-                url: `?filter[text]=${name}`
+                url: `?page[limit]=20&filter[text]=${name}`
             })
         })
 
