@@ -4,7 +4,7 @@ import {
     AttributesWrapper,
     Description,
     DescriptionWrapper
-} from "../AnimePrev/AnimePrev.styles";
+} from "../AnimePreview/AnimePreview.styles";
 import {animeType} from "../../store/types/types";
 
 type Props = {
@@ -14,9 +14,8 @@ type Props = {
 export const AnimeCard = ({fullInfo}:Props) => {
     return(
         <DescriptionWrapper>
-            <AnimeTitle to={"/anime"}>{fullInfo.attributes.canonicalTitle}</AnimeTitle>
+            <AnimeTitle to={`/anime/${fullInfo.id}`}>{fullInfo.attributes.canonicalTitle}</AnimeTitle>
             <Description>{fullInfo.attributes.description}</Description>
-
             <AttributesWrapper>
                 <AttributeName>Age rating</AttributeName>
                 <Attribute>{fullInfo.attributes.ageRating}</Attribute>

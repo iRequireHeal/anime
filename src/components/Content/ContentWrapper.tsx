@@ -1,26 +1,32 @@
 import {AnimeList} from "../AnimeList/AnimeList";
-import {ContentWrapperStyles} from "./ContentWrapper.styles";
 import {TStore, useGetAnimeListQuery, useGetSearchedListQuery} from "../../store";
 import {useSelector} from "react-redux";
+import {Message} from "../Message/Message";
+import {stat} from "fs";
 
 
 export const ContentWrapper = () => {
     const titleName = useSelector((state: TStore) => state.reducer.titleName)
-    const {data: animeList, isLoading: animeListLoading} = useGetSearchedListQuery(titleName);
+    const page = useSelector((state: TStore) => state.currentPage.page)
+    const {data: animeSearchList, isLoading: animeSearchListLoading} = useGetSearchedListQuery(titleName);
+    const {data: animeList, isLoading: animeListLoading} = useGetAnimeListQuery(page);
 
-    console.log(titleName)
-
-    if (!animeListLoading) {
+    if (titleName.trim()) {
         return (
-            <ContentWrapperStyles>
-                <AnimeList animePropType={animeList.data} />
-            </ContentWrapperStyles>
+            animeSearchListLoading ? (
+                <Message message={"Loading..."}/>
+            ): (
+                <AnimeList animePropType={animeSearchList.data} />
+            )
         )
     }
-
-    return (
-        <ContentWrapperStyles>
-            <button>asdasd</button>
-        </ContentWrapperStyles>
-    )
+    else {
+        return (
+            animeListLoading ? (
+                <Message message={"Loading..."}/>
+            ): (
+                <AnimeList animePropType={animeList.data} />
+            )
+        )
+    }
 }

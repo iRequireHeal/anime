@@ -1,10 +1,25 @@
-import {Link} from "react-router-dom";
 import {FlippingButtonWrapper, FlippingButton} from "./FlippingButtons.styles"
+import {useDispatch} from "react-redux";
+import {nextPage, firstPage, prevPage} from "../../store/modules/Pages/Page";
 
 export const FlippingButtons = () => {
-    return(
+    const dispatch = useDispatch()
+
+    const handleNext = () => {
+        dispatch(nextPage())
+    }
+    const handlePrev = () => {
+        dispatch(prevPage())
+    }
+    const handleFirst = () => {
+        dispatch(firstPage())
+    }
+
+    return (
         <FlippingButtonWrapper>
-            <FlippingButton to="anime/">Kokoko</FlippingButton>
+            <FlippingButton onClick={handlePrev}>previous</FlippingButton>
+            <FlippingButton onClick={handleFirst}>first</FlippingButton>
+            <FlippingButton onClick={handleNext}>next</FlippingButton>
         </FlippingButtonWrapper>
     )
 }

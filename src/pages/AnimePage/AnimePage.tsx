@@ -1,38 +1,32 @@
 import {Header} from "../../components/Header/Header";
-import {useGetAnimeListQuery, useGetAnimeQuery} from "../../store";
-import {animeType} from "../../store/types/types";
-
-import {useLocation, useParams} from "react-router-dom";
+import {useGetAnimeQuery} from "../../store";
+import {useParams} from "react-router-dom";
 import {
     AnimeImage,
-    AnimeTitle,
-    Description,
-    DescriptionWrapper,
-    AnimePrevStyles,
-    AttributesWrapper,
-    Attribute,
-    AttributeName
-} from "../../components/AnimePrev/AnimePrev.styles";
+    AnimePreviewStyles,
+} from "../../components/AnimePreview/AnimePreview.styles";
+
 import {AnimeCard} from "../../components/AnimeCard/AnimeCard";
+import {Message} from "../../components/Message/Message";
 
 export const AnimePage = () => {
     let {id} = useParams();
     const Id = Number(id)
     const {data: anime, isLoading} = useGetAnimeQuery(Id)
-    async function asdasd() {
-        await console.log(anime)
-    }
+
+    if (isLoading)
+        return <Message message={"Loading"}/>
 
     if (!anime)
-       return <h1>Loading</h1>
+        return <Message message={"Cant find anime with this name"}/>
 
     return (
         <div>
             <Header/>
-            <AnimePrevStyles>
+            <AnimePreviewStyles>
                 <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${Id}/small.jpg`} alt=""/>
-                <AnimeCard fullInfo={anime} />
-            </AnimePrevStyles>
+                <AnimeCard fullInfo={anime}/>
+            </AnimePreviewStyles>
         </div>
     )
 }
