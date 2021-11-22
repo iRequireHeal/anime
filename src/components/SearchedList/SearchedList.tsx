@@ -13,7 +13,7 @@ export const SearchedList = ({titleName}: Props) => {
 
     if (isLoading)
         return (
-            <Message message={"Loading"}/>
+            <Message message={"Loading..."}/>
         )
 
     return (
