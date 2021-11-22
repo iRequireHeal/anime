@@ -21,9 +21,9 @@ export const animeListApi = createApi({
                 url: `?page[limit]=20&filter[text]=${name}`
             })
         })
-
     })
 })
 
 export const {useGetAnimeListQuery, useGetAnimeQuery, useGetSearchedListQuery} = animeListApi;
+
 
