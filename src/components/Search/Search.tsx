@@ -1,10 +1,10 @@
 import React, {ChangeEvent, useEffect, useState} from "react";
 import {SearchInput} from "./StyledSearch";
 import {useDispatch} from "react-redux";
-import {setInput} from "../../store/modules/Search/searchSlice";
+import {getInput} from "../../store/modules/Search/searchSlice";
 
 export const Search = () => {
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState<string>()
     const dispatch = useDispatch()
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -14,8 +14,8 @@ export const Search = () => {
     }
 
     useEffect(() => {
-        dispatch(setInput(value));
-    }, [dispatch, value]);
+        dispatch(getInput(value));
+    }, [value, dispatch]);
 
     return (
         <>

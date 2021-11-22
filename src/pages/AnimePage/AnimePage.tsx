@@ -22,7 +22,7 @@ export const AnimePage = () => {
 
     return (
         <div>
-            <Header/>
+            <Header isSearch={false}/>
             <AnimePreviewStyles>
                 <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${Id}/small.jpg`} alt=""/>
                 <AnimeCard fullInfo={anime}/>

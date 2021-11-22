@@ -9,10 +9,10 @@ export const searchSlice = createSlice({
     name: 'search',
     initialState,
     reducers: {
-        setInput(state, action) {
+        getInput(state, action) {
             state.titleName = action.payload
         },
     }
 })
 
-export const {setInput} = searchSlice.actions
+export const {getInput} = searchSlice.actions

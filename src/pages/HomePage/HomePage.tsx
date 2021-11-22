@@ -5,7 +5,7 @@ import {FlippingButtons} from "../../components/FlippingButtons/FlippingButtons"
 export const HomePage = () => {
     return(
         <div>
-            <Header/>
+            <Header isSearch={true}/>
             <FlippingButtons/>
             <ContentWrapper/>
             <FlippingButtons/>
