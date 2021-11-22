@@ -13,9 +13,9 @@ export const Search = () => {
         }
     }
 
-    useEffect(()=>{
-        dispatch(setInput(value))
-    })
+    useEffect(() => {
+        dispatch(setInput(value));
+    }, [dispatch, value]);
 
     return (
         <>

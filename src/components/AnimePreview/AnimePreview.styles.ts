@@ -21,6 +21,7 @@ export const AnimeTitle = styled(Link)`
 export const AnimeImage = styled.img`
   border-radius: 10%;
   border: 2px solid grey;
+  width: 305px;
   height: 406px;
   max-height: 406px;
   &:hover {

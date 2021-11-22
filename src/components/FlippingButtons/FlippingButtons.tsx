@@ -1,6 +1,6 @@
 import {FlippingButtonWrapper, FlippingButton} from "./FlippingButtons.styles"
 import {useDispatch} from "react-redux";
-import {nextPage, firstPage, prevPage} from "../../store/modules/Pages/Page";
+import {nextPage, firstPage, prevPage} from "../../store/modules/Pages/PageSlice";
 
 export const FlippingButtons = () => {
     const dispatch = useDispatch()
