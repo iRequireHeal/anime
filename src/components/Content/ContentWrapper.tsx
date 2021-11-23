@@ -1,23 +1,17 @@
-import {AnimePrev} from "../AnimePrev/AnimePrev";
-import {StyledContentWrapper} from "./StyledContentWrapper";
-import {useGetAnimeListQuery} from "../../store";
-
+import {AnimeList} from "../AnimeList/AnimeList";
+import {TStore} from "../../store";
+import {useSelector} from "react-redux";
+import {SearchedList} from "../SearchedList/SearchedList";
 
 export const ContentWrapper = () => {
-    const {data, isLoading, isError} = useGetAnimeListQuery(null);
+    const titleName = useSelector((state: TStore) => state.reducer.titleName)
 
-    const gets = async () => {
-        await console.log(data.data)
-    }
-
-    if(!isLoading) {
-        return data.data.map((item: object) => <AnimePrev anime={item}/>)
-    }
-
+    if (!titleName)
+        return (
+            <AnimeList/>
+        )
 
     return (
-        <StyledContentWrapper>
-            <button onClick={gets}>asdasd</button>
-        </StyledContentWrapper>
+        <SearchedList titleName={titleName}/>
     )
 }
