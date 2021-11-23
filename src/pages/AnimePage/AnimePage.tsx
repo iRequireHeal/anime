@@ -43,7 +43,7 @@ export const AnimePage = () => {
                 <YVideo videoId={anime.attributes.youtubeVideoId}/>
                 <GenresList>
                     <Description><h1>Genres</h1></Description>
-                    {listload ? <h1>Loading...</h1>:
+                    {listload ? <h1>Loading...</h1> :
                         genres.data?.map((item: genresType) =>
                             <Description>
                                 {item.attributes.name}
