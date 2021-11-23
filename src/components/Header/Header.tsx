@@ -7,11 +7,11 @@ type Props = {
     isSearch: boolean
 }
 
-export const Header = ({isSearch}:Props) => {
-    if(isSearch) return (
+export const Header = ({isSearch}: Props) => {
+    if (isSearch) return (
         <StyledNav>
             <StyledLogo to="/">Anime-chan</StyledLogo>
-            <Search />
+            <Search/>
         </StyledNav>
     )
 

@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {animeType} from "../types/types";
 
 export const animeListApi = createApi({
@@ -8,22 +8,27 @@ export const animeListApi = createApi({
     }),
     endpoints: (build) => ({
         getAnimeList: build.query({
-            query:(page) => ({
+            query: (page) => ({
                 url: `?page[limit]=10&page[offset]=${page}`,
             })
         }),
-        getAnime: build.query<animeType,number|undefined>({
-            query:(id) => `https://kitsu.io/api/edge/anime/${id}`,
-            transformResponse: (response: { data: animeType }) => response.data,
+        getAnime: build.query<animeType, number | undefined>({
+            query: (id) => `https://kitsu.io/api/edge/anime/${id}`,
+            transformResponse: (response: { data: animeType }) => response.data
         }),
         getSearchedList: build.query({
-            query:(name) =>({
+            query: (name) => ({
                 url: `?page[limit]=20&filter[text]=${name}`
+            })
+        }),
+        getGenres: build.query({
+            query: (id) => ({
+                url: `https://kitsu.io/api/edge/anime/${id}/genres`
             })
         })
     })
 })
 
-export const {useGetAnimeListQuery, useGetAnimeQuery, useGetSearchedListQuery} = animeListApi;
+export const {useGetAnimeListQuery, useGetAnimeQuery, useGetSearchedListQuery, useGetGenresQuery} = animeListApi;
 
 

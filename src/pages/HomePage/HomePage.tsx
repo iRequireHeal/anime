@@ -3,7 +3,7 @@ import {ContentWrapper} from "../../components/Content/ContentWrapper";
 import {FlippingButtons} from "../../components/FlippingButtons/FlippingButtons";
 
 export const HomePage = () => {
-    return(
+    return (
         <div>
             <Header isSearch={true}/>
             <FlippingButtons/>

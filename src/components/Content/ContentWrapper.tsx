@@ -6,12 +6,12 @@ import {SearchedList} from "../SearchedList/SearchedList";
 export const ContentWrapper = () => {
     const titleName = useSelector((state: TStore) => state.reducer.titleName)
 
-    if(!titleName)
+    if (!titleName)
         return (
-                <AnimeList/>
+            <AnimeList/>
         )
 
     return (
-            <SearchedList titleName={titleName}/>
+        <SearchedList titleName={titleName}/>
     )
 }

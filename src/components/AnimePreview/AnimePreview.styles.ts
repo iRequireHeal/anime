@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import YouTube from "react-youtube";
 
 export const AnimePreviewStyles = styled.div`
   text-align: center;
@@ -24,30 +25,51 @@ export const AnimeImage = styled.img`
   width: 305px;
   height: 406px;
   max-height: 406px;
+
   &:hover {
     border: red solid 2px;
   }
 `
+
+export const SplashImage = styled.img`
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 515px;
+`
+
+export const TrailerWrapper = styled.div`
+  width: 100%;
+  background-color: #282c34;
+  display: flex;
+`
+export const YVideo = styled(YouTube)`
+  margin: 50px 355px;
+`
+
 export const Title = styled.div`
   display: flex;
 `
 
 export const Description = styled.div`
   display: block;
-  width: 1284px;
   text-align: left;
   padding: 10px 20px;
   color: antiquewhite;
 `
 export const DescriptionWrapper = styled.div`
   width: 1500px;
-
   padding: 10px 30px 30px;
   margin: 0 20px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.11);
+  background-color: rgba(51, 51, 51, 0.7);
   border-radius: 12px;
+`
+
+export const GenresList = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 
 export const AgeRating = styled.div`
@@ -70,7 +92,7 @@ export const AttributeName = styled.p`
   color: antiquewhite;
   margin: 10px 0;
 `
-export const Attribute= styled.p`
+export const Attribute = styled.p`
   margin: 10px 0;
   width: 90px;
   text-align: left;

@@ -1,11 +1,19 @@
 import {animeType} from "../../store/types/types";
-import {AnimePreviewStyles, AnimeTitle, AnimeImage, Description, AgeRating, DescriptionWrapper, Title} from './AnimePreview.styles'
+import {
+    AnimePreviewStyles,
+    AnimeTitle,
+    AnimeImage,
+    Description,
+    AgeRating,
+    DescriptionWrapper,
+    Title
+} from './AnimePreview.styles'
 
 type animePreview = {
     animTypes: animeType
 }
 
-export const AnimePreview = ({animTypes}: animePreview ) => {
+export const AnimePreview = ({animTypes}: animePreview) => {
     return (
         <AnimePreviewStyles>
             <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${animTypes.id}/small.jpg`} alt=""/>
