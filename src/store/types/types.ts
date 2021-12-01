@@ -11,8 +11,8 @@ export interface genresType {
     }
 }
 
-export interface genreListT {
-    genres: string | undefined;
+export interface PropsT {
+    name: string | undefined;
     page: number | undefined;
 }
 

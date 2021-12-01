@@ -1,7 +1,7 @@
 import {AnimeListStyles} from "../AnimeList/AnimeList.styles";
 import {TStore, useGetByGenreQuery} from "../../store";
 import {Message} from "../Message/Message";
-import {animeType, genreListT} from "../../store/types/types";
+import {animeType, PropsT} from "../../store/types/types";
 import {AnimePreview} from "../AnimePreview/AnimePreview";
 import {useParams} from "react-router-dom";
 import {FlippingButtons} from "../FlippingButtons/FlippingButtons";
@@ -11,8 +11,8 @@ import {Genre} from "./ListByGenres.styles";
 export const ListByGenres = () => {
     const {genre} = useParams()
     const page = useSelector((state: TStore) => state.currentPage.page)
-    const genreData: genreListT = {
-        genres: genre,
+    const genreData: PropsT = {
+        name: genre,
         page: page,
     }
     const {data, isLoading, isError} = useGetByGenreQuery(genreData)
@@ -27,13 +27,13 @@ export const ListByGenres = () => {
             <Message message={"ERROR!"}/>
         )
 
-
     return (
         <AnimeListStyles>
             <FlippingButtons/>
             <Genre>Genre: {genre}</Genre>
             {data.data.length ? data.data.map((item: animeType) => <AnimePreview key={item.id} animTypes={item}/>) :
                 <Message message={'Seems theres no anime with this genre'}/>}
+            <FlippingButtons/>
         </AnimeListStyles>
     )
 }

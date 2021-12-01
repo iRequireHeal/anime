@@ -1,15 +1,18 @@
 import {AnimeListStyles} from "../AnimeList/AnimeList.styles";
-import {useGetSearchedListQuery} from "../../store";
+import {TStore, useGetSearchedListQuery} from "../../store";
 import {Message} from "../Message/Message";
 import {animeType} from "../../store/types/types";
 import {AnimePreview} from "../AnimePreview/AnimePreview";
+import {PropsT} from "../../store/types/types";
+import {useSelector} from "react-redux";
 
-type Props = {
-    titleName: string
-}
-
-export const SearchedList = ({titleName}: Props) => {
-    const {data, isLoading, isError} = useGetSearchedListQuery(titleName)
+export const SearchedList = ({name}: PropsT) => {
+    const page = useSelector((state: TStore) => state.currentPage.page)
+    const genreData: PropsT = {
+        name: name,
+        page: page,
+    }
+    const {data, isLoading, isError} = useGetSearchedListQuery(genreData)
 
     if (isLoading)
         return (

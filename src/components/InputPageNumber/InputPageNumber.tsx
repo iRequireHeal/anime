@@ -3,10 +3,6 @@ import {setPage} from "../../store/modules/Pages/PageSlice";
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 
-interface Props {
-    pageProps:number
-}
-
 export const InputPageNumber = () => {
     const [page, setPages] = useState(0);
     const dispatch = useDispatch();

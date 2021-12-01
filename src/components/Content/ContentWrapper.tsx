@@ -12,13 +12,15 @@ export const ContentWrapper = () => {
             <>
                 <FlippingButtons/>
                 <AnimeList/>
+                <FlippingButtons/>
             </>
         )
 
     return (
         <>
             <FlippingButtons/>
-            <SearchedList titleName={titleName}/>
+            <SearchedList name={titleName} page={0}/>
+            <FlippingButtons/>
         </>
     )
 }

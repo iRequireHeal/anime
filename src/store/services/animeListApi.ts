@@ -1,11 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {animeType, genreListT} from "../types/types";
-import {log} from "util";
-
-type genreT ={
-    genre: string;
-    page: number;
-}
+import {animeType, PropsT} from "../types/types";
 
 export const animeListApi = createApi({
     reducerPath: 'animeListApi',
@@ -23,8 +17,8 @@ export const animeListApi = createApi({
             transformResponse: (response: { data: animeType }) => response.data
         }),
         getSearchedList: build.query({
-            query: (name) => ({
-                url: `?page[limit]=20&filter[text]=${name}`
+            query: (search: PropsT) => ({
+                url: `?page[limit]=20&filter[text]=${search.name}&page[offset]=${search.page}`
             })
         }),
         getGenres: build.query({
@@ -33,9 +27,9 @@ export const animeListApi = createApi({
             })
         }),
         getByGenre: build.query({
-            query: (genre:genreListT) =>
+            query: (genre:PropsT) =>
                 ({
-                url: `?page[limit]=20&filter[genres]=${genre.genres}&page[offset]=${genre.page}`
+                url: `?page[limit]=20&filter[genres]=${genre.name}&page[offset]=${genre.page}`
 
             })
         })
