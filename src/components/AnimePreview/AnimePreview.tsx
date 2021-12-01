@@ -13,11 +13,13 @@ type animePreview = {
     animTypes: animeType
 }
 
+
 export const AnimePreview = ({animTypes}: animePreview) => {
     return (
         <AnimePreviewStyles>
             <AnimeImage src={`https://media.kitsu.io/anime/poster_images/${animTypes.id}/small.jpg`} alt=""/>
             <DescriptionWrapper>
+
                 <Title>
                     <AgeRating>
                         {animTypes.attributes.ageRating}

@@ -1,5 +1,5 @@
-import {Header} from "../../components/Header/Header";
-import {useGetAnimeQuery, useGetGenresQuery} from "../../store";
+import {Header} from "../components/Header/Header";
+import {useGetAnimeQuery, useGetGenresQuery} from "../store";
 import {useParams} from "react-router-dom";
 
 import {
@@ -10,11 +10,11 @@ import {
     YVideo,
     Description,
     GenresList
-} from "../../components/AnimePreview/AnimePreview.styles";
+} from "../components/AnimePreview/AnimePreview.styles";
 
-import {AnimeCard} from "../../components/AnimeCard/AnimeCard";
-import {Message} from "../../components/Message/Message";
-import {genresType} from "../../store/types/types";
+import {AnimeCard} from "../components/AnimeCard/AnimeCard";
+import {Message} from "../components/Message/Message";
+import {genresType} from "../store/types/types";
 
 export const AnimePage = () => {
     let {id} = useParams();
@@ -30,7 +30,6 @@ export const AnimePage = () => {
 
     const splash = anime.attributes.coverImage?.large
 
-
     return (
         <div>
             <Header isSearch={false}/>
@@ -45,7 +44,7 @@ export const AnimePage = () => {
                     <Description><h1>Genres</h1></Description>
                     {listload ? <h1>Loading...</h1> :
                         genres.data?.map((item: genresType) =>
-                            <Description>
+                            <Description  key={item.id}>
                                 {item.attributes.name}
                                 <br/>
                             </Description>

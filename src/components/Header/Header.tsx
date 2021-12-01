@@ -1,6 +1,5 @@
 import React from "react";
-import {StyledNav} from "./Header.styles";
-import {StyledLogo} from "./Header.styles";
+import {StyledNav, StyledLogo, StyledGenres} from "./Header.styles";
 import {Search} from "../Search/Search";
 
 type Props = {
@@ -10,7 +9,10 @@ type Props = {
 export const Header = ({isSearch}: Props) => {
     if (isSearch) return (
         <StyledNav>
-            <StyledLogo to="/">Anime-chan</StyledLogo>
+            <div>
+                <StyledLogo to="/">Anime-chan</StyledLogo>
+                <StyledGenres to="/genres">genres</StyledGenres>
+            </div>
             <Search/>
         </StyledNav>
     )

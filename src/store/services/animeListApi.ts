@@ -1,5 +1,11 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {animeType} from "../types/types";
+import {animeType, genreListT} from "../types/types";
+import {log} from "util";
+
+type genreT ={
+    genre: string;
+    page: number;
+}
 
 export const animeListApi = createApi({
     reducerPath: 'animeListApi',
@@ -25,10 +31,23 @@ export const animeListApi = createApi({
             query: (id) => ({
                 url: `https://kitsu.io/api/edge/anime/${id}/genres`
             })
+        }),
+        getByGenre: build.query({
+            query: (genre:genreListT) =>
+                ({
+                url: `?page[limit]=20&filter[genres]=${genre.genres}&page[offset]=${genre.page}`
+
+            })
         })
     })
 })
 
-export const {useGetAnimeListQuery, useGetAnimeQuery, useGetSearchedListQuery, useGetGenresQuery} = animeListApi;
+export const {
+    useGetAnimeListQuery,
+    useGetAnimeQuery,
+    useGetSearchedListQuery,
+    useGetGenresQuery,
+    useGetByGenreQuery
+} = animeListApi;
 
 

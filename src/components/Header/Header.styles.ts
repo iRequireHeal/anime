@@ -16,3 +16,11 @@ export const StyledLogo = styled(Link)`
   margin: 0;
   padding: 10px;
 `
+export const StyledGenres = styled(Link)`
+  font-size: 20px;
+  text-decoration: none;
+  height: 20px;
+  color: #61dafb;
+  margin: 0;
+  padding: 10px;
+`

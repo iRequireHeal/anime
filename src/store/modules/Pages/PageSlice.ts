@@ -21,9 +21,14 @@ export const pageSlice = createSlice({
         },
         firstPage(state: Page) {
             state.page = 0
+            console.log('sadasdasd')
+        },
+        setPage(state: Page, action)
+        {
+            state.page = action.payload*10
         }
     }
 })
 
-export const {nextPage, prevPage, firstPage} = pageSlice.actions
+export const {nextPage, prevPage, firstPage, setPage} = pageSlice.actions
 export const selectId = (state: { id: Page }) => state.id

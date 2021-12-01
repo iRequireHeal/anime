@@ -1,6 +1,8 @@
-import {FlippingButtonWrapper, FlippingButton} from "./FlippingButtons.styles"
+import {FlippingPageWrapper, FlippingButton} from "./FlippingButtons.styles"
 import {useDispatch} from "react-redux";
-import {nextPage, firstPage, prevPage} from "../../store/modules/Pages/PageSlice";
+import {nextPage, prevPage} from "../../store/modules/Pages/PageSlice";
+import React from "react";
+import {InputPageNumber} from "../InputPageNumber/InputPageNumber";
 
 export const FlippingButtons = () => {
     const dispatch = useDispatch()
@@ -11,15 +13,22 @@ export const FlippingButtons = () => {
     const handlePrev = () => {
         dispatch(prevPage())
     }
-    const handleFirst = () => {
-        dispatch(firstPage())
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>, choosenFunction: typeof handleNext) => {
+        document!.querySelectorAll('button').forEach(item => item.disabled = true)
+        choosenFunction()
+        setTimeout(switchButton, 500)
+    }
+
+    const switchButton = () => {
+        document!.querySelectorAll('button').forEach(item => item.disabled = !item.disabled)
     }
 
     return (
-        <FlippingButtonWrapper>
-            <FlippingButton onClick={handlePrev}>previous</FlippingButton>
-            <FlippingButton onClick={handleFirst}>first</FlippingButton>
-            <FlippingButton onClick={handleNext}>next</FlippingButton>
-        </FlippingButtonWrapper>
+        <FlippingPageWrapper>
+            <FlippingButton onClick={(e) => handleClick(e, handlePrev)}>previous</FlippingButton>
+            <InputPageNumber/>
+            <FlippingButton onClick={(e) => handleClick(e, handleNext)}>next</FlippingButton>
+        </FlippingPageWrapper>
     )
 }

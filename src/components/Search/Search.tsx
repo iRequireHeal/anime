@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {getInput} from "../../store/modules/Search/searchSlice";
 
 export const Search = () => {
-    const [value, setValue] = useState<string>()
+    const [value, setValue] = useState<string>('')
     const dispatch = useDispatch()
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -18,8 +18,10 @@ export const Search = () => {
     }, [dispatch, value]);
 
     return (
-        <>
-            <SearchInput placeholder='Введите название' value={value} onChange={handleChange}/>
-        </>
+        <SearchInput
+            placeholder='Введите название'
+            value={value}
+            onChange={handleChange}
+        />
     )
 }

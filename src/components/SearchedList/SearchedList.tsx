@@ -9,7 +9,7 @@ type Props = {
 }
 
 export const SearchedList = ({titleName}: Props) => {
-    const {data, isLoading} = useGetSearchedListQuery(titleName)
+    const {data, isLoading, isError} = useGetSearchedListQuery(titleName)
 
     if (isLoading)
         return (
