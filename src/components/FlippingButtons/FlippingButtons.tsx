@@ -2,7 +2,6 @@ import {FlippingPageWrapper, FlippingButton} from "./FlippingButtons.styles"
 import {useDispatch} from "react-redux";
 import {nextPage, prevPage} from "../../store/modules/Pages/PageSlice";
 import React from "react";
-import {InputPageNumber} from "../InputPageNumber/InputPageNumber";
 
 export const FlippingButtons = () => {
     const dispatch = useDispatch()
@@ -27,7 +26,6 @@ export const FlippingButtons = () => {
     return (
         <FlippingPageWrapper>
             <FlippingButton onClick={(e) => handleClick(e, handlePrev)}>previous</FlippingButton>
-            <InputPageNumber/>
             <FlippingButton onClick={(e) => handleClick(e, handleNext)}>next</FlippingButton>
         </FlippingPageWrapper>
     )
