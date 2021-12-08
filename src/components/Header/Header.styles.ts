@@ -15,6 +15,11 @@ export const StyledLogo = styled(Link)`
   color: #61dafb;
   margin: 0;
   padding: 10px;
+  transition-duration: 500ms;
+  &:hover {
+    color: red;
+    border-radius: 45px;
+  }
 `
 export const StyledGenres = styled(Link)`
   font-size: 20px;
@@ -23,4 +28,9 @@ export const StyledGenres = styled(Link)`
   color: #61dafb;
   margin: 0;
   padding: 10px;
+  transition-duration: 500ms;
+  &:hover {
+    color: red;
+    border-radius: 45px;
+  }
 `

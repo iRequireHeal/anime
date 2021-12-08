@@ -1,11 +1,19 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {Link} from "react-router-dom";
 import YouTube from "react-youtube";
+
+const breatheAnimation = keyframes`
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+`
 
 export const AnimePreviewStyles = styled.div`
   text-align: center;
   display: flex;
   margin: 30px 50px;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-name: ${breatheAnimation};
 `
 
 export const AnimeTitle = styled(Link)`
@@ -17,15 +25,19 @@ export const AnimeTitle = styled(Link)`
   color: cyan;
   text-decoration: none;
   font-size: 30px;
+  transition: .5s;
+  &:hover {
+    color: red;
+    border-radius: 45px;
+  }
 `
 
 export const AnimeImage = styled.img`
   border-radius: 10%;
   border: 2px solid grey;
-  width: 291px;
+  min-width: 291px; 
   height: 406px;
   max-height: 406px;
-
   &:hover {
     border: red solid 2px;
   }
